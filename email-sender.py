@@ -8,7 +8,7 @@ import smtplib
 email_sender = 'peter.furst.dev@gmail.com'
 email_password = password()
 
-email_receiver = input("Enter an e-mail address")
+email_receiver = input("Enter an e-mail address: ")
 
 subject = input("Enter subject: ")
 
