@@ -3,16 +3,16 @@ from app2 import password
 import ssl 
 import smtplib
 
+
+
 email_sender = 'peter.furst.dev@gmail.com'
-email_password = password
+email_password = password()
 
-email_receiver = 'pimoki6300@lurenwu.com'
+email_receiver = input("Enter an e-mail address")
 
-subject = 'Hello irj nekem :)'
+subject = input("Enter subject: ")
 
-body = """
-Hello. Mizu? Hogy vagy?
-"""
+body = input("Enter the text: ")
 
 em = EmailMessage()
 em['From'] = email_sender
@@ -22,7 +22,7 @@ em.set_content(body)
 
 context = ssl.create_default_context()
 
-with smtplib.SMTP_SSL('smt.gmail.com', 465, context=context) as smtp:
+with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
     smtp.login(email_sender, email_password)
     smtp.sendmail(email_sender, email_receiver, em.as_string())
 
